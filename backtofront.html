@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover how to connect frontend (HTML, CSS) with a Python Flask backend without using JavaScript. Learn about the process through a simple form submission example." />
+    <meta name="keywords" content="frontend backend connection, HTML CSS Flask, form submission, Python Flask tutorial, web development, Flask example" />
+    <title>Connecting Frontend with Backend</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <button id="modeToggle"></button>
+            <div class="menu-toggle" id="mobile-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav><br>
+    </header>
+
+    <div class="container2"><br>
+        <img src="FronttoBack.jpeg" alt="Connecting Frontend with Backend">
+        <h1>Connecting Frontend with Python Flask Backend </h1>
+        <br>
+        <h2>Introduction</h2><br>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/yaMaV2YzbhE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p>In this blog, I will walk you through a simple yet effective way to connect your frontend (HTML, CSS) with a
+            Python Flask backend without the need for JavaScript. We’ll create a basic form where users can submit their
+            name and email, and the backend will process the form data and display a response on a new page.</p><br>
+
+        <h2>Step 1: Frontend (HTML, CSS)</h2><br>
+
+        <h3>index.html</h3><br>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Form Submission&lt;/title&gt;
+    &lt;link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;Submit Your Information&lt;/h1&gt;
+        &lt;form action="/submit" method="POST"&gt;
+            &lt;label for="name"&gt;Name:&lt;/label&gt;
+            &lt;input type="text" id="name" name="name" required&gt;
+            
+            &lt;label for="email"&gt;Email:&lt;/label&gt;
+            &lt;input type="email" id="email" name="email" required&gt;
+            
+            &lt;button type="submit"&gt;Submit&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><br>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/2T_BqVVyLvY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <h3>styles.css</h3><br>
+        <pre><code>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}</code></pre><br>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/vUxirJnGzPQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <h2>Step 2: Backend (Python Flask)</h2><br>
+
+        <h3>app.py</h3><br>
+        <pre><code>from flask import Flask, request, render_template, redirect, url_for
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/submit', methods=['POST'])
+def submit_form():
+    name = request.form['name']
+    email = request.form['email']
+
+    # Simulate processing the data
+    response_message = f"Hello, {name}! Your email {email} has been submitted successfully."
+
+    return render_template('result.html', message=response_message)
+
+if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+
+        <h3>result.html</h3>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Submission Result&lt;/title&gt;
+    &lt;link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;Submission Result&lt;/h1&gt;
+        &lt;p&gt;{{ message }}&lt;/p&gt;
+        &lt;a href="{{ url_for('home') }}"&gt;Go Back&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h2>Step 3: Running the Application</h2><br>
+
+        <h3>Set Up the Project Directory:</h3><br>
+        <p>Create a directory for your project. Inside this directory, create three subdirectories: <code>static</code>,
+            <code>templates</code>, and <code>static/css</code>.<br> Place <code>index.html</code> and <code>result.html</code>
+            inside the <code>templates</code> folder. Place <code>styles.css</code> inside the <code>static/css</code>
+            folder.</p><br>
+
+        <h3>Install Flask:</h3><br>
+        <p>If you haven’t installed Flask yet, run:</p><br>
+        <pre><code>pip install Flask</code></pre><br>
+
+        <h3>Run the Flask Application:</h3><br>
+        <p>In your terminal, navigate to the directory containing <code>app.py</code> and run:</p><br>
+        <pre><code>python app.py</code></pre><br>
+        <p>This will start the Flask development server. Open your web browser and go to
+            <code>http://127.0.0.1:5000/</code> to see your form.</p><br>
+
+        <h3>Test the Form:</h3><br>
+        <p>Fill out the form and submit it. You should see a new page displaying the submission result.</p><br>
+
+        <h2>Explanation:</h2><br>
+        <p>In this example, the frontend consists of a simple form built with HTML and styled with CSS. The form submits
+            the user's name and email to the Flask backend via a POST request. The backend processes this data and then
+            renders a new HTML page (<code>result.html</code>) that displays a message confirming the submission.</p><br>
+
+        <p>This method demonstrates a straightforward way to handle form submissions in web applications without relying
+            on JavaScript.</p><br>
+        <h3>Final Thoughts</h3><br>
+        <p class="quote">"Frontend development is about making things look beautiful. Backend development is about making those things work beautifully."</p><br>
+        <p>Thank you for reading! Stay tuned for more insights and stories from my development journey.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Selva Krishnan K. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

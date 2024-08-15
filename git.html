@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Git, a powerful version control system that enables smooth collaboration and efficient project management. Discover the basics, essential commands, workflows, and best practices." />
+    <meta name="keywords" content="Git, version control, Git basics, Git commands, Git workflows, Git best practices, software development, programming, coding, project management" />
+    <title>Git Mastery: Essential Commands and Best Practices</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <button id="modeToggle"></button>
+            <div class="menu-toggle" id="mobile-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav><br>
+    </header>
+    <div class="container2"><br>
+        <img src="gitcover.jpg" alt="Git Guide">
+        <h1>Git Mastery: Essential Commands and Best Practices</h1><br>
+        <h2>Introduction</h2><br>
+        <p>Welcome to my blog! In this post, we'll dive into Git, a distributed version control system that has become an essential tool for developers. Whether you're a beginner or looking to refresh your knowledge, this guide will help you understand the basics, essential commands, and best practices of using Git.</p><br>
+        <h2>What is Git?</h2><br>
+        <p>Git is an open-source version control system created by Linus Torvalds in 2005. Unlike centralized version control systems, Git's distributed nature allows developers to work offline and have access to the full project history. Git tracks changes, facilitates collaboration, and manages the history of a project efficiently.</p><br>
+        <h2>Why is Git Important?</h2><br>
+        <p>Imagine you're working on a project with multiple contributors. Without a version control system, coordinating changes and managing versions can become chaotic. Git helps by keeping track of changes, preventing conflicts, and allowing multiple developers to collaborate smoothly.</p><br>
+        <h2>Setting Up Git</h2><br>
+        <h3>How to Install Git</h3><br>
+        <p><strong>Windows:</strong> Download the installer from the <a href="https://git-scm.com/" target="_blank">official Git website</a> and follow the installation instructions.</p><br>
+        <p><strong>MacOS:</strong> Install Git using Homebrew with the command <code>brew install git</code>.</p><br>
+        <p><strong>Linux:</strong> Use the package manager for your distribution, such as <code>sudo apt-get install git</code> for Debian-based systems or <code>sudo yum install git</code> for Red Hat-based systems.</p><br>
+        <h3>Initial Configuration</h3><br>
+        <p>Set up your username and email:</p>
+        <pre><code>git config --global user.name "Name"
+git config --global user.email "email"</code></pre>
+        <img src="gitconfig.png" alt="Initial Configuration"><br>
+        <p>This configuration sets your name and email, which will appear in your commits.</p><br>
+        <h2>Basic Git Commands</h2><br>
+        <p>Here are some basic Git commands to get you started:</p><br>
+        <p><strong>Initialize a new Git repository:</strong></p>
+        <pre><code>git init</code></pre>
+        <img src="gitinit.png" alt="new repo"><br>
+        <p>This command creates a new Git repository in the current directory. It initializes the repository with a .git directory where Git stores all the metadata and object database for the project.</p><br>
+        <p><strong>Clone an existing repository:</strong></p>
+        <pre><code>git clone "repo link"</code></pre>
+        <img src="gitclone.png" alt="cloning repo"><br>
+        <p>Cloning a repository means you are creating a copy of the existing repository in your local machine. This command downloads the project and its entire version history.</p><br>
+        <img src="gitlink.png" alt="link of repo"><br>
+        <p><strong>Stage changes for the next commit:</strong></p>
+        <pre><code>git add filename
+git add .</code></pre><br>
+        <p>The <code>git add</code> command stages changes, adding them to the staging area. Using <code>git add filename</code> stages a specific file, while <code>git add .</code> stages all changes in the current directory.</p><br>
+        <p><strong>Commit changes to the repository:</strong></p>
+        <pre><code>git commit -m "Commit message"</code></pre>
+        <img src="gitcommit.png" alt="commiting file"><br>
+        <p>Committing changes means recording the staged changes in the repository with a message describing the changes. This creates a new snapshot in the project history.</p><br>
+        <p><strong>Show the status of changes:</strong></p>
+        <pre><code>git status</code></pre>
+        <img src="gitstatus.png" alt="status"><br>
+        <p>This command displays the status of the working directory and staging area. It shows which files are staged, unstaged, and untracked.</p><br>
+        <p><strong>Display the commit history:</strong></p>
+        <pre><code>git log</code></pre>
+        <img src="gitconfig.png" alt="history"><br>
+        <p>The <code>git log</code> command shows the commit history for the repository. It lists the commits in reverse chronological order, showing the hash, author, date, and commit message.</p><br>
+        <h2>Working with Branches</h2><br>
+        <p>Branches allow you to work on different parts of a project simultaneously.</p><br>
+        <p><strong>Create a new branch:</strong></p>
+        <pre><code>git branch new-feature</code></pre><br>
+        <p>This command creates a new branch named <code>new-feature</code>. Branches are pointers to commits and allow you to develop features or fix bugs in isolation from the main codebase.</p><br>
+        <p><strong>Switch to a branch:</strong></p>
+        <pre><code>git checkout new-feature</code></pre>
+        <img src="gitbranch.png" alt="Working with Branches"><br>
+        <p>Use this command to switch to the <code>new-feature</code> branch. It updates the working directory to match the branch's state.</p><br>
+        <p><strong>Merge a branch into another:</strong></p>
+        <pre><code>git merge new-feature</code></pre>
+        <img src="gitmerge.png" alt="merging with Branches"><br>
+        <p>This command merges the changes from the <code>new-feature</code> branch into the current branch. Git automatically handles merging files unless there are conflicts.</p><br>       
+        <p><strong>Resolve conflicts manually when prompted by Git.</strong></p><br>
+        <h2>Remote Repositories</h2><br>
+        <p>Link your local repository to a remote one:</p>
+        <pre><code>git remote add origin "repo link"</code></pre>
+        <p>This command adds a remote repository named <code>origin</code>. Remote repositories are versions of your project hosted on the internet or another network.</p><br>
+        <p><strong>Push your commits to the remote repository:</strong></p>
+        <pre><code>git push origin main</code></pre>
+        <img src="gitpush.png" alt="Remote Repositories"><br>
+        <p>Use this command to push the commits from your local repository to the remote repository. This updates the remote repository with your local changes.</p><br>
+        <p><strong>Create a local copy of a remote repository:</strong></p>
+        <pre><code>git clone "repo link"</code></pre><br>
+        <img src="gitclone.png" alt="clone Repositories"><br>
+        <p>This command creates a local copy of a remote repository, including all branches, commits, and tags.</p><br>
+        <h2>Best Practices</h2><br>
+        <ul>
+            <li>Commit often with meaningful messages.</li>
+            <li>Use branches for new features and bug fixes.</li>
+            <li>Regularly push your changes to the remote repository.</li>
+            <li>Pull changes from the remote repository frequently to stay updated.</li>
+            <li>Review and resolve merge conflicts promptly.</li>
+        </ul><br>
+        <h2>Conclusion</h2><br>
+        <p>Git is an essential tool for modern software development, enabling efficient version control and collaboration. By mastering Git commands and workflows, you can manage your projects more effectively and collaborate seamlessly with other developers. Happy coding!</p><br>
+        <h3>Final Thoughts</h3>
+        <p class="quote">"Version control is not just a tool but a way to improve your coding practices and collaboration skills."</p>
+        <p>Thank you for reading "Git Essentials: Your Ultimate Guide to Version Control"! I hope you found this guide helpful and informative. If you have any questions or feedback, feel free to leave a comment below or reach out through my contact page. Your support and engagement mean a lot!</p>
+    </div>
+    <footer>
+        <p>&copy; 2024 Selva Krishnan K. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
