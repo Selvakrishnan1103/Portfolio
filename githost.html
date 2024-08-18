@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Step-by-step guide to hosting your webpage using Git and GitHub Pages. Learn how to add a remote origin, configure settings, enable HTTPS, and set up a custom domain.">
+    <meta name="keywords" content="Git, GitHub Pages, hosting, custom domain, DNS, CNAME, HTTPS, static site">
+    <title>Launching Your Site: GitHub Pages Made Simple</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <button id="modeToggle"></button>
+            <div class="menu-toggle" id="mobile-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container2">
+        <img src="github.jpg" alt="hosting with GitHub">
+        <h1>Launching Your Site: GitHub Pages Made Simple</h1><br>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/jsAkSAGGL_o" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <h2>Adding a Remote Origin</h2><br>
+        <p>First, you need to add a remote origin to your repository. This allows you to push your local changes to the remote GitHub repository. Use the following command:</p>
+        <pre><code>git remote add origin https://github.com/yourusername/your-repository.git</code></pre><br>
+
+        <h2>Pushing Files to the Repository</h2><br>
+        <p>Once you've added the remote origin, push your files to the repository:</p>
+        <pre><code>git add .</code></pre>
+        <pre><code>git commit -m "Initial commit"</code></pre>
+        <pre><code>git push -u origin main</code></pre><br>
+
+        <h2>Setting Up GitHub Pages</h2><br>
+        <p>To host your site using GitHub Pages, follow these steps:</p>
+        <ol>
+            <li>Navigate to the repository on GitHub.</li>
+            <li>Go to <strong>Settings</strong>.</li>
+            <li>Scroll down to the <strong>Pages</strong> section.</li>
+            <li>Select the <strong>main branch</strong> and set the root directory.</li>
+            <li>Click <strong>Save</strong>.</li>
+        </ol><br>
+
+        <h2>Enabling HTTPS</h2><br>
+        <p>GitHub Pages provides a free HTTPS certificate for your site. To enable it:</p>
+        <ol>
+            <li>Go to the <strong>Pages</strong> section in your repository’s settings.</li>
+            <li>Under <strong>Custom domain</strong>, check the box for <strong>Enforce HTTPS</strong>.</li>
+            <li>Check your page by visiting <code>https://yourusername.github.io/yourrepositoryname</code>.</li>
+        </ol><br>
+
+        <h2>Configuring DNS for a Custom Domain</h2><br>
+        <p>If you have a custom domain, you can configure your DNS to point to GitHub's servers:</p>
+        <ol>
+            <li>Go to your domain registrar's website.</li>
+            <li>Add or modify the A records to point to the following GitHub IP addresses:</li>
+            <ul>
+                <li><code>185.199.108.153</code></li>
+                <li><code>185.199.109.153</code></li>
+                <li><code>185.199.110.153</code></li>
+                <li><code>185.199.111.153</code></li>
+            </ul>
+        </ol><br>
+
+        <h2>Creating a CNAME File</h2><br>
+        <p>To ensure your custom domain works with GitHub Pages, create a <code>CNAME</code> file in the root directory of your repository:</p>
+        <pre><code>echo "yourdomain.com" > CNAME</code></pre><br>
+
+        <h2>Conclusion</h2><br>
+        <p>By following these steps, you can successfully host your webpage using Git and GitHub Pages, with or without a custom domain. GitHub provides a reliable and straightforward way to make your site live, complete with HTTPS support and easy DNS configuration.</p><br>
+
+        <h3>Final Thoughts</h3>
+        <p class="quote">"With GitHub Pages, hosting your website has never been easier. Take control of your content and share it with the world."</p>
+        <p>Thank you for reading! Stay tuned for more tips on web development and Git mastery.</p><br>
+    </div>
+    <footer>
+        <p>&copy; 2024 Selva Krishnan K. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
