@@ -848,22 +848,33 @@ body.light-theme .container2 a{
     color: #e9e4e4;
     margin: 20px 0;
 }
+
 pre {
     white-space: pre-wrap;
     overflow-wrap: break-word;
-    max-width: 100%; 
+    max-width: 100%;
+    border-radius: 5px;
 }
 
 code {
     display: block; 
-    overflow-x: auto; 
+    overflow-x: auto;
+    margin: 10px; 
+}
+body.dark-theme pre{
+    background-color: whitesmoke;
+    color: black;
+}
+
+body.light-theme pre{
+    background-color: whitesmoke;
+    color: black;
 }
 iframe{
-    width:560px ;
-    height:315px;
+    width: 1090px;
+    height: 628px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 5px;
 }
 ol {
     list-style-type: decimal;
@@ -888,7 +899,7 @@ ol li {
         height: auto;
     }
     iframe{
-        width: 330px;
+        width: 325px;
         height: auto;
     }
 }
