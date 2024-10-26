@@ -179,6 +179,43 @@ body.light-theme .hero .cta{
 .hero .cta:hover {
     background: #ccc;
 }
+
+body.dark-theme .abouts-text .cta{
+    background: #fff;
+    color: #000;
+}
+body.light-theme .abouts-text .cta{
+    background: linear-gradient(to right ,lightblue, blue );
+    color: white ;
+}
+.abouts-text .cta {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.abouts-text .cta:hover {
+    background: #ccc;
+}
+
+body.dark-theme .apk{
+    background: #fff;
+    color: #000;
+}
+body.light-theme .apk{
+    background: linear-gradient(to right ,lightblue, blue );
+    color: white ;
+}
+.apk {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.apk {
+    background: #ccc;
+}
+
 #intro {
     padding: 40px 20px;
     background: rgba(255, 255, 255, 0.1);
